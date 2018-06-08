@@ -1,20 +1,28 @@
-  <div class="container-main row" style="text-align:center">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-8">
+<div class="row">
+  <div class="col-sm-4">
+    <div class="container-main">
       <img src="https://az860744.vo.msecnd.net/images/indialends-logo.png" />
-      <form class="form-content">
+      <form action={{loginFormAction}} class="form-content">
         <div>
-          <legend style="font-weight:600;">Library Management</legend>
+          <legend style="font-weight:600;">{{titlename}}</legend>
           <p>
             <label>User Name</label>
-            <input id="LoginUser" type="text" class="form-control" />
+            <input id="LoginUser" placeholder="Input IL email id" type="text" class="form-control" />
           </p>
           <p>
             <label>Password </label>
-            <input id="LoginPass" type="password" class="form-control" />
+            <input id="LoginPass" placeholder="Check your mail for OTP" type="password" class="form-control" />
           </p>
-          <button id="LoginSubmit" type="submit" class="btn btn-success">Login</button>
+          <p>
+            <button id="LoginSubmit" type="submit" class="btn btn-success">Login</button>
+          </p>
+          <p>
+            <span class="text-info">* For Sign Up also enter E-mail & OTP</span>
+          </p>
         </div>
       </form>
     </div>
   </div>
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4"></div>
+</div>

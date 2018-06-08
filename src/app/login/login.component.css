@@ -1,8 +1,6 @@
 form{
-    width: 50%;
-    height: 100px;
-    overflow: auto;
-    border: 1px solid #CCC;
+    width: 100%;
+    border: 3px solid #CCC;
     border-radius: 1em;
     position: relative;
     margin: 0 auto;
@@ -20,6 +18,5 @@ form{
     background-color: #eff3f4;
     position: relative;
     width: 100%;
-    height: 100%;
     -webkit-font-smoothing: antialiased;
 }

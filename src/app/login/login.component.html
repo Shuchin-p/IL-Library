@@ -2,24 +2,27 @@
   <div class="col-sm-4">
     <div class="container-main">
       <img src="https://az860744.vo.msecnd.net/images/indialends-logo.png" />
-      <form action={{loginFormAction}} class="form-content">
-        <div>
-          <legend style="font-weight:600;">{{titlename}}</legend>
-          <p>
-            <label>User Name</label>
-            <input id="LoginUser" placeholder="Input IL email id" type="text" class="form-control" />
-          </p>
+      <form #userInfo="ngForm" action={{loginFormAction}} class="form-content form-group">
+        <legend style="font-weight:600;">{{titlename}}</legend>
+        <div class="form-group" [class.has-error]="uname.invalid && uname.touched" [class.has-success]="uname.valid">
+          <label class="control-label">User Name</label>
+          <input id="LoginUser" [(ngModel)]="loginEmail" #uname="ngModel" (focus)="loginChange($event)" required pattern="{{unamePattern}}"
+            name="LoginUser" placeholder="Input IL email id" type="text" class="form-control" />
+          <span class="help-block" *ngIf="uname.invalid && uname.touched">IndiaLends E-mail required</span>
+        </div>
+        <div class="form-group">
           <p>
             <label>Password </label>
-            <input id="LoginPass" placeholder="Check your mail for OTP" type="password" class="form-control" />
-          </p>
-          <p>
-            <button id="LoginSubmit" type="submit" class="btn btn-success">Login</button>
-          </p>
-          <p>
-            <span class="text-info">* For Sign Up also enter E-mail & OTP</span>
+            <input id="LoginPass" (focus)="passFocusEvent($event)" placeholder="Check your mail for OTP" type="password" pattern="{{passPattern}}" 
+              class="form-control" />
           </p>
         </div>
+        <p>
+          <button [id]="loginbtnId" type="submit" class="btn btn-success">{{loginbtn}}</button>
+        </p>
+        <p>
+          <span class="text-info">* For Sign Up also enter E-mail & OTP</span>
+        </p>
       </form>
     </div>
   </div>

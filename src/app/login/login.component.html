@@ -2,7 +2,7 @@
   <div class="col-sm-4">
     <div class="container-main">
       <img src="https://az860744.vo.msecnd.net/images/indialends-logo.png" />
-      <form #userInfo="ngForm" action={{loginFormAction}} class="form-content form-group">
+      <form #userInfo="ngForm" class="form-content form-group" [ngStyle]="{'max-height.px': height}">
         <legend style="font-weight:600;">{{titlename}}</legend>
         <div class="form-group" [class.has-error]="uname.invalid && uname.touched" [class.has-success]="uname.valid">
           <label class="control-label">User Name</label>
@@ -12,14 +12,15 @@
         </div>
         <div class="form-group">
           <p>
-            <label>Password </label>
-            <input id="LoginPass" (focus)="passFocusEvent($event)" placeholder="Check your mail for OTP" type="password" pattern="{{passPattern}}" 
-              class="form-control" />
+            <label *ngIf="passShow">Password </label>
+            <input id="LoginPass" (focus)="passFocusEvent($event)" [(ngModel)]="loginPass" name="loginPass" #pass="ngModel" placeholder="Check your mail for OTP"
+              type="password" pattern="{{passPattern}}" [disabled]="uname.invalid" *ngIf="passShow" class="form-control" />
           </p>
         </div>
         <p>
-          <button [id]="loginbtnId" type="submit" class="btn btn-success">{{loginbtn}}</button>
+          <button [id]="loginbtnId" (click)="loginbtnClick($event)" type="submit" [disabled]="uname.invalid" class="btn btn-success form-control">{{loginbtn}}</button>
         </p>
+        {{count}}
         <p>
           <span class="text-info">* For Sign Up also enter E-mail & OTP</span>
         </p>

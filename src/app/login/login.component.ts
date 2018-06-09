@@ -15,17 +15,23 @@ export class LoginComponent implements OnInit {
   public loginEmail = "";
   unamePattern = "([A-z._]+)";
   passPattern = "([0-9]{5})";
+  public passShow = false;
+  public height = "200";
   constructor() {
   }
   passFocusEvent(event) {
     this.loginbtn = "Login";
     this.loginbtnId = "login"
-
   }
   loginChange(event) {
-    this.loginbtn = "GenerateOTP";
+    this.loginbtn = "Generate OTP";
     this.loginbtnId = "generateotp"
-
+  }
+  loginbtnClick(event){
+    if(this.passShow==false){
+      this.passShow=true;
+    }
+    this.height="300";
   }
   ngOnInit() {
   }

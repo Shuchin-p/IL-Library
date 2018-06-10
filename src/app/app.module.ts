@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
+    UserindexComponent,
+    LoginComponent,
     routingComponents,
     PageNotFoundComponent
   ],

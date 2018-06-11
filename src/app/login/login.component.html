@@ -6,7 +6,7 @@
         <legend style="font-weight:600;">{{titlename}}</legend>
         <div class="form-group" [class.has-error]="email.invalid && email.touched" [class.has-success]="email.valid">
           <label class="control-label">User Name</label>
-          <input id="LoginUser" [(ngModel)]="userlogin.email" #email="ngModel" (focus)="loginChange($event)" required email pattern="{{unamePattern}}"
+          <input id="LoginUser" [(ngModel)]="userlogin.email" #email="ngModel" (focus)="loginChange($event)" required pattern="{{unamePattern}}"
             name="email" placeholder="Input IL email id" type="text" class="form-control" />
           <span class="help-block" *ngIf="email.invalid && email.touched">IndiaLends E-mail required</span>
         </div>

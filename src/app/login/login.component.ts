@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserLogin } from '../models/user.model'
+import { NgForm } from '@angular/forms';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +24,11 @@ export class LoginComponent implements OnInit {
     email: null,
     otp: null,
   };
-  constructor() {
+  ngOnInit() {
+    this.resetLogin();
+  }
+  constructor(private UserService:UserService) {
+
   }
   passFocusEvent(event) {
     this.loginbtn = "Login";
@@ -42,8 +48,20 @@ export class LoginComponent implements OnInit {
   }
   loginForm(nuserlogin: UserLogin): void {
     console.log(nuserlogin);
+    this.UserService.tryLogin(nuserlogin).subscribe((data:any) =>{
+      if(data.Succeeded == true){
+        alert("OKAY");
+        console.log(data);
+      }
+    });
   }
-  ngOnInit() {
+  resetLogin(form?: NgForm) {
+    if (form != null) {
+      form.reset();
+      this.userlogin = {
+        email: null,
+        otp: null
+      }
+    }
   }
-
 }

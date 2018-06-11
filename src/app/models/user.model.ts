@@ -10,3 +10,8 @@ export class UserInfo{
     is_active:boolean;
     returndue:boolean;
 }
+export class UserLogin
+{
+    email?:string;
+    otp?:number;
+}
